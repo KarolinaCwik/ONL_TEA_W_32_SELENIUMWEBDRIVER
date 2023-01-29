@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class zadanie1 {
+public class zadanie2 {
 
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
@@ -19,12 +19,15 @@ public class zadanie1 {
 
         driver.get("https://hotel-testlab.coderslab.pl/en/");
 
-        WebElement hotelLocationInput = driver.findElement(By.id("hotel_location"));
-        WebElement searchNowButton = driver.findElement(By.id("search_room_submit"));
-        WebElement newsletterInput = driver.findElement(By.id("newsletter-input"));
+        WebElement hotelLocationInput = driver.findElement(By.name("hotel_location"));
+        WebElement searchNowButton = driver.findElement(By.name("search_room_submit"));
+        WebElement newsletterInput = driver.findElement(By.name("email"));
+        WebElement subscribeButton = driver.findElement(By.name("submitNewsletter"));
 
         hotelLocationInput.sendKeys("Warsaw");
         newsletterInput.sendKeys("test@test.com");
+        searchNowButton.submit();
+
         driver.quit();
     }
 }
